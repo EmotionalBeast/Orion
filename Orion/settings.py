@@ -55,7 +55,9 @@ ROOT_URLCONF = 'Orion.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,6 +81,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME':'orion',    #需要连接的数据库名称
+    #     'USER':'root',           #连接数据库的用户名
+    #     'PASSWORD':'ufoto',       #用户名对应的密码
+    #     'HOST':'127.0.0.1',     #连接主机，这里是本机
+    #     'PORT':3306             #端口，默认是3306
+    # }
 }
 
 
@@ -118,4 +128,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' #全局静态文件配置，默认放在app目录下
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
