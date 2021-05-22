@@ -7,4 +7,4 @@ from django.shortcuts import HttpResponse, render, redirect
 
 
 def login(request):
-    return render(request, "login/base.html")
+    return render(request, "login/login1.html")
